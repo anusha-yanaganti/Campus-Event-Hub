@@ -1,0 +1,107 @@
+/* Footer CSS */
+
+/* Universal styles */
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: 0.2s linear;
+  }
+  
+  /* Footer Section */
+  .footer {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    padding: 1rem 7%;
+  }
+  
+  .footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 3.5rem;
+    justify-content: center;
+  }
+ 
+  .footer .box {
+    padding: 0.5rem; /* Add padding inside each box */
+}
+
+  .footer .box-container .box h3 {
+    font-size: 1.5rem;
+    padding: 1.5rem 0;
+    color: #fff;
+  }
+
+  .footer .box a {
+    display: block;
+    font-size: 1rem;
+    color: white;
+    margin: 1rem 0;
+    transition: color 0.2s linear;
+  }
+  
+  .footer .box a i {
+    margin-bottom: 0.5;
+    color: #f9802b;
+    margin-right: 0.5rem;
+  }
+  
+  .footer .box a:hover {
+    color: #f9802b;
+  }
+  
+  .footer .credit {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 1rem;
+    color: #e3dcdc;
+  }
+  
+  .footer .credit .yc {
+    color: #f9802b;
+  }
+
+
+/* Map Box Styles */
+.footer .map-box {
+  padding: 0.5rem;
+}
+
+.footer .map-container {
+  width: 100%;
+  height: 200px; /* Set height for the map */
+  overflow: hidden;
+  border-radius: 8px; /* Optional: round the corners */
+}
+
+.footer .map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer .box-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+  
+  .footer .map-container {
+      height: 250px; /* Adjust height for smaller screens */
+  }
+
+  .footer .box {
+    padding: 0;
+  }
+
+  .footer .map-box {
+    margin-top: 2rem;
+  }
+}
+
+

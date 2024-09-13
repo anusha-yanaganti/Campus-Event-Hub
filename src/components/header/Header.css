@@ -1,0 +1,195 @@
+
+
+/* src/components/header/Header.css */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   background-color: #333;
+   /* background: rgba(0, 0, 0, 0.5);*/
+    background: transparent;
+    padding: 3.5rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    height: 80px;
+    position: absolute;
+    width:100%;
+    z-index: 1000; /* Ensure header stays above other elements */
+  }
+  
+  /* Logo Styling */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    flex:1;
+    
+  }
+  
+  .logo {
+    height: 100px; /* Adjust the size of the logo */
+    width: auto; /* Maintain the aspect ratio */
+    /*margin: right 1rem;; /* Space between logo and other elements */
+    margin:0;
+    transition: transform 0.3s ease; 
+  }
+  
+  .logo:hover {
+    transform: scale(1.1); /* Adjust the scale value to zoom the logo */
+  }
+  
+  /* Navigation Items */
+  .nav-item {
+    margin-left: 2rem; /* Space between navigation items */
+    transition: transform 0.3s ease; 
+    position: relative;
+  }
+  
+  
+  
+  .nav-item ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item li {
+    margin: 0 1.5rem;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    color:inherit;
+    text-decoration: none;
+    font-size: 1.2rem; /* Font size of the navigation text */
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  /* Navigation Icon Styling */
+  .nav-link .fs-3 {
+    margin-right: 0.3rem;
+    color:inherit;
+  }
+  
+  .nav-link .white{
+    color:inherit;
+  }
+  
+  
+  .nav-link:hover,
+  .nav-link:hover .fs-3 {
+  color: #f9802b; /* Change this to your desired hover color */
+  transform: scale(1.025);
+  }
+  
+  /* Specific Text Color Classes */
+  .nav-link {
+    color: black;
+  }
+  
+  /*.text-warning {
+    color: #ffc107;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-item ul {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .nav-item li {
+      margin: 0.5rem 0;
+    }
+  
+    .logo {
+      margin-bottom: 1rem;
+    }
+  
+  }
+  
+  /* Styling for the navigation item containing the dropdown */
+  .nav-item {
+    position: relative; /* Ensure dropdown menu is positioned relative to this element */
+  }
+  
+  .dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    top:4.5rem;
+    right:1.5rem;
+    border:1px solid gray;
+    border-radius: 5px;
+    width: 201px; 
+    /* Adjust width as needed */
+    /*z-index: 1000; /* Ensure it appears above other elements */
+  }
+  
+  .dropdown-menu::before{
+    content:'';
+    position: absolute;
+    top: -0.6em;
+    right:1.1rem;
+    width: 20px;
+    height: 20px;
+    transform:rotate(45deg);
+    background-color: white;
+    border-left:1px solid gray;
+    border-top:1px solid gray;
+  
+  }
+  
+  /* Styling for each dropdown menu item */
+  .dropdown-menu li {
+    padding: 10px 5px;
+    border-bottom: 1px solid #2e2d2d;
+    text-align: center;
+  }
+  
+  /* Remove the bottom border from the last item */
+  .dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  
+  .dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+     /* Make the entire area clickable */
+  }
+  
+  .dropdown-menu li a:hover{
+  color: #f9802b;
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: #ffffffa0;
+    
+  }
+  
+  /* Show dropdown on click */
+  .nav-link {
+    cursor: pointer;
+  }
+  
+  /* Toggle dropdown visibility */
+  .nav-link .dropdown-menu {
+    display: block;
+  }
+  

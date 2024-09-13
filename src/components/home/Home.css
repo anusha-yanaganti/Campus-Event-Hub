@@ -1,0 +1,73 @@
+/* src/components/home/Home.css */
+.home {
+    background-image: url('https://cdn.wallpapersafari.com/79/69/lq6dBM.jpg'); /* Replace with your image URL */
+       background-size:cover;
+       background-position: bottom center;
+       height: 80vh;
+       min-height: 100vh;
+       background-repeat: no-repeat ;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       /* color: black; */
+       text-shadow: 2px 2px 2px rgba(182, 169, 169, 0.7);
+       margin:0;
+       padding:0;
+     }
+     
+     .home h1 {
+       font-size: 3rem;
+       margin-bottom: 1rem;
+       
+ 
+     }
+     .home .diff{
+         font-family: 'Times New Roman', Times, serif;
+         text-shadow: none;
+         font-weight: lighter;
+         font-size: 1.8rem;
+         margin-bottom: 3.8rem;
+     }
+     
+     .home p {
+       font-size: 2rem;
+       text-align: center;
+       max-width: 700px;
+       /*font-family:;
+       font-style: italic;
+       font-variant: small-caps; */
+       font-family: 'Great Vibes', cursive;
+       font-style: italic;
+       
+ 
+     }
+ 
+     .home .btn{
+         text-shadow: none;
+     }
+     .btn {
+         margin-top: 1rem;
+         display: inline-block;
+         border: 0.1rem solid black;
+         color: rgb(54, 52, 52);
+         cursor: pointer;
+         background: none;
+         font-size: 1.4rem;
+         padding: 1rem 2rem;
+         border-radius: 50px;
+         text-decoration: none;
+       }
+     
+       .btn:hover {
+         background: rgb(68, 67, 67);
+         color: white;
+       }
+ 
+       
+ 
+ 
+ 
+   
+   
+ 

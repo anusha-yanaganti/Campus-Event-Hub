@@ -1,0 +1,114 @@
+/* src/components/about/About.css */
+/* src/components/about/About.css */
+
+.about-container {
+    height:auto ; /* Full height of the viewport */
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    
+  }
+  
+  .colored-section {
+    flex: 1; /* Take up half of the height */
+    background-color: #add9d2; /* Adjust the color to your preference */
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 9.5rem;
+    text-align: center;
+  }
+  
+  .white-section {
+    flex: 1; /* Take up the other half of the height */
+    background-color: white;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .white-section p {
+    font-size: 1.2rem;
+    margin-top: 7.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; /* You can adjust this width based on your layout */
+   
+  }
+      .image-divider {
+        position: absolute; /* Absolute positioning within the colored section */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Offset by 50% to truly center */
+       text-align: center;
+         
+      }
+  
+      .image-divider img {
+        max-width: 100%; /* Ensure it doesn't exceed the parent width */
+        max-height: 100%; /* Ensure it doesn't exceed the parent height */
+         height:30rem; /* Keep the aspect ratio */
+         padding-top: 15rem;
+        width: 400px; /* Set the desired width */
+      }
+  
+      .mi {
+        font-size: 2.2rem;
+        margin-top: 1rem;
+        padding-top: 7rem;
+        padding-bottom: 1.5rem;
+        padding-right:25rem;
+      }
+  
+      .miss {
+        text-align:left; /* Align text to the left */
+        padding-right:30rem;
+        padding-left: 5rem;
+        margin-top: 2rem !important;
+      }
+  
+      .miss-pic{
+        
+        width: 1100px; /* Adjust the width as needed */
+        height: auto; /* Maintains aspect ratio */
+      /*  float:left; /* Aligns the image to the left */
+        padding-left:41rem;
+        margin-top:-17rem;
+        
+      }
+  
+      .vi {
+        font-size: 2.2rem;
+        margin-top: 1rem;
+        padding-top: 7rem;
+        padding-bottom: 1.5rem;
+        padding-left:25rem;
+      }
+  
+      .viss {
+        text-align:left; /* Align text to the left */
+        padding-left:30rem;
+        padding-right: 5rem;
+        margin-top: 2rem !important;
+      }
+  
+      .viss-pic{
+        
+        width: 1100px; /* Adjust the width as needed */
+        height: auto; /* Maintains aspect ratio */
+        padding-right:41rem;
+        margin-top:-17rem;
+        
+      }

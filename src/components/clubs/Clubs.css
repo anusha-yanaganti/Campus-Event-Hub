@@ -1,0 +1,77 @@
+/* Clubs.css */
+
+.clubs {
+    background: #f0f0f0; /* Background color for the clubs section */
+    padding: 10rem 0;
+  }
+  
+  .clubs .heading {
+    text-align: center;
+    font-size: 3rem;
+    color: #10221b;
+    margin-bottom: 3rem;
+  }
+  
+  .clubs .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    padding: 0 2.5rem;/* to scroll down  clubs starting point */
+  }
+  
+  .clubs .box-container .box {
+    text-align: center;
+    background: #f8f4f4;
+    /*
+    border-radius: 1rem;
+    border: 0.1rem solid #060606;*/
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.3); 
+    overflow: hidden;
+  }
+  
+  .clubs .box-container .box .image {
+    height: 18rem;
+    overflow: hidden;
+  }
+  
+  .clubs .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .clubs .box-container .box .content {
+    padding: 2rem;
+  }
+  
+  .clubs .box-container .box .content h3 {
+    font-size: 2rem;
+    color: #10221b;
+  }
+  
+  .clubs .box-container .box .content p {
+    font-size: 1rem;
+    color: #10221b;
+    padding: 1.5rem 0;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .clubs .box-container .box .btn {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    font-size: 1.15rem;
+    color: #10221b;
+    background:none;
+    border: 0.1rem solid #000000;
+    border-radius: 0.3rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .clubs .box-container .box .btn:hover {
+    background: #000000; /* Change background to black */
+    color: #ffffff; /* Change text color to white */
+    border-color: #000000; /* Ensure border remains black */
+}
+
