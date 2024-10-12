@@ -18,7 +18,7 @@ function Signup() {
   const handleSignup = async (data) => {
     try {
       // Simulating backend call to register user
-      let response = await fetch('http://localhost:5173/signup-api', {
+      let response = await fetch('http://localhost:4000/api/users/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

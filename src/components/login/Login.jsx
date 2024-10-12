@@ -1,22 +1,23 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { userLoginContext } from '../../contexts/userLoginContext';
+import { userLoginContext } from '../../contexts/userLoginContext'; // Import context
 import './Login.css';
 
 function Login() {
+  const { register, handleSubmit, formState: { errors }, setError } = useForm();
+  const { loginUser, error } = useContext(userLoginContext); // Access the login context
+  const navigate = useNavigate(); // React Router navigation
+  const [loginError, setLoginError] = useState(''); // State to store login error
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const role = queryParams.get('role') || 'student'; // Default to 'student' role
-  const { register, handleSubmit, formState: { errors }, setError } = useForm();
-  const { loginUser, error } = useContext(userLoginContext); // Access context
-  const navigate = useNavigate(); // Use navigate here, in the component
-  const [loginError, setLoginError] = useState(''); // State to store error message
+  const role = queryParams.get('role') || 'student'; // Role comes from query string
 
+  // Function to handle login form submission
   const handleLogin = async (data) => {
     const emailDomain = data.email.split('@')[1];
 
-    // Validate role-based email domains
+    // Email validation based on role (admin or student)
     if (role === 'student' && emailDomain !== 'pvpsit.ac.in') {
       setLoginError('Please use a valid student email');
       return;
@@ -25,20 +26,40 @@ function Login() {
       return;
     }
 
-    // Simulate login, call loginUser, and handle response
-    const loginSuccessful = await loginUser({ ...data, role });
 
-    if (!loginSuccessful) {
-      // Check if the error is due to non-existent user or incorrect credentials
-      setLoginError('Invalid email or password. If you are a new user, please sign up.');
-    } else {
-      // Clear error and navigate based on the role
-      setLoginError('');
-      if (role === 'student') {
-        navigate('/events');
-      } else if (role === 'admin') {
-        navigate('/events');
+
+    // Backend API call to handle login
+    try {
+      const response = await fetch('http://localhost:4000/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email:data.email, password:data.password }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Save token to localStorage and context
+       localStorage.setItem('token', result.token);
+        //localStorage.setItem('token', response.data.token); // Storing the token after login
+
+        // Set the logged-in user in the context
+        loginUser({ email: data.email, role, token: result.token });
+
+        // Navigate based on the user's role
+        if (role === 'student') {
+          navigate('/events/StudentDashboard');
+        } else if (role === 'admin') {
+          navigate('/events/AdminDashboard');
+        }
+      } else {
+        setLoginError(result.message || 'Login failed. Please check your credentials.');
       }
+    } catch (error) {
+      setLoginError('An error occurred. Please try again.');
+      console.error('Login Error: ', error);
     }
   };
 

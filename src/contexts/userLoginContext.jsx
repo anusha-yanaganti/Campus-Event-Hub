@@ -11,10 +11,10 @@ export const UserLoginProvider = ({ children }) => {
   });
 
   const [userLoginStatus, setUserLoginStatus] = useState(() => {
-    return !!localStorage.getItem('user');
+    return !!localStorage.getItem('token'); // Use the token for login status
   });
 
-  // Save user to localStorage on change
+  // Save user data and token to localStorage when changed
   useEffect(() => {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
@@ -23,15 +23,18 @@ export const UserLoginProvider = ({ children }) => {
     }
   }, [user]);
 
+  // Login function
   const loginUser = (userData) => {
     setUser(userData);
     setUserLoginStatus(true);
   };
 
+  // Logout function
   const logoutUser = () => {
     setUser(null);
     setUserLoginStatus(false);
     localStorage.removeItem('user');
+    localStorage.removeItem('token'); // Clear token as well
   };
 
   return (

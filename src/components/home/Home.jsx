@@ -15,7 +15,7 @@ function Home(){
       </div>
       
       <div classname="btn">
-        < Link to="/events" class="btn">Get Started</Link>
+        < Link to="/events/StudentDashboard" class="btn">Get Started</Link>
         </div>
     </div>
   );

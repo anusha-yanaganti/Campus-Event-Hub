@@ -1,0 +1,36 @@
+.profile-icon-container {
+    position: relative; /* Needed for absolute positioning of the dropdown */
+    display: inline-block; /* Aligns the icon in line with other items */
+  }
+  
+  .profile-icon {
+    font-size: 24px; /* Size of the profile icon */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .profile-dropdown {
+    display: block; /* Show the dropdown */
+    position: absolute; /* Position it below the icon */
+    top: 100%; /* Align below the icon */
+    left: 0; /* Align to the left */
+    background-color: white; /* Background color of the dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    list-style-type: none; /* Remove default list styles */
+    margin: 0; /* Remove default margin */
+    padding: 10px 0; /* Padding for dropdown items */
+    z-index: 1000; /* Ensure dropdown is above other content */
+  }
+  
+  .profile-dropdown li {
+    padding: 8px 16px; /* Padding for each dropdown item */
+  }
+  
+  .profile-dropdown li a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Text color */
+  }
+  
+  .profile-dropdown li:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+  }
+  
