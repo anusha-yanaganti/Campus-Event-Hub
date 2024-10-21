@@ -1,7 +1,8 @@
-const { MongoClient } = require('mongodb');
+
+const { MongoClient, ObjectId } = require('mongodb'); // Ensure ObjectId is imported
 const bcrypt = require('bcrypt');  // For hashing passwords
 const jwt = require('jsonwebtoken');  // For generating tokens
-const { ObjectId } = require('mongodb').ObjectId;
+// const { ObjectId } = require('mongodb').ObjectId;
 
 
 // MongoDB connection setup
@@ -108,41 +109,31 @@ const loginUser = async (req, res) => {
 };
 
 
-
-// Define the getUserById function
 const getUserById = async (req, res) => {
   try {
     await client.connect();
     const database = client.db(dbName);
     const usersCollection = database.collection('users');
 
-    // Fetch the user by ID stored in req.user (assuming req.user is set after token verification)
-    //const user = await usersCollection.findOne({ _id: ObjectId(req.user.id) });
-// Convert req.user.id to MongoDB ObjectId
-const userId = new ObjectId(req.user.id); 
-
-// Fetch the user by ID stored in req.user (assuming req.user is set after token verification)
-const user = await usersCollection.findOne({ _id: userId });
-
+    const userId = new ObjectId(req.user.id); // Ensure req.user is populated correctly
+    const user = await usersCollection.findOne({ _id: userId });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Send user details back in the response
     res.json({
       username: user.username,
       email: user.email,
       mobileNumber: user.mobileNumber,
     });
   } catch (error) {
-    console.error('Error fetching user details:', error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Error fetching user details:', error); // Log the error for debugging
+    res.status(500).json({ message: 'Server error', error: error.message }); // Return error details
   } finally {
-    await client.close(); // Ensure the MongoDB connection is closed after operation
+    await client.close();
   }
 };
-
 
 
 module.exports = {
@@ -150,3 +141,4 @@ module.exports = {
   loginUser,
   getUserById,
 };
+

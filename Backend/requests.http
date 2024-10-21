@@ -23,12 +23,42 @@ Content-Type: application/json
 GET http://localhost:4000/api/users/user-details
 Authorization: Bearer {eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZmEzNDgzNDA2ZDhhMzg1NWM2YzM2NiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzI3NjgyMjkyLCJleHAiOjE3Mjc2ODU4OTJ9.DNGFAC5nWrDXGW5OKGAnGZnf1NBDnIF3kH4grWn5FjU}
 
-### Update User Profile
-Post http://localhost:4000/api/profile
+
+### Create Event Request
+POST http://localhost:4000/api/events
+Authorization: Bearer YOUR_JWT_TOKEN
 Content-Type: application/json
 
 {
-  "name": "Jane Doe",
-  "email": "jane@pvpsit.ac.in",
-  "mobileNumber": "1234567890"
-}
+    "title": "Sample Event Title",
+    "startTime": "10:00",
+    "endTime": "12:00",
+    "date": "2024-10-20",
+    "venue": "Sample Venue",
+    "description": "This is a sample description for the event.",
+    "participation": "team",
+    "teamSizeMin": 2,
+    "teamSizeMax": 5,
+    "registrationLink": "http://example.com/register",
+    "organizers": [
+        {
+            "name": "Organizer One",
+            "email": "organizer1@example.com",
+            "phone": "1234567890"
+        },
+        {
+            "name": "Organizer Two",
+            "email": "organizer2@example.com",
+            "phone": "0987654321"
+        }
+    ]
+}''
+
+### 1. Fetch All Events
+GET http://localhost:4000/api/events 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDllNWIyMTY5NGRlMGFlZTNhMTk0MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcyODkxNTQ0MCwiZXhwIjoxNzI4OTE5MDQwfQ.Gza7Nr1kDtBmnuErQuqGUFK3r4mPXnySYclG2HSaLaw
+
+### Request to test event fetch by eventId
+GET http://localhost:4000/api/events/670b9d50977f308d06c67916
+
+Content-Type: application/json

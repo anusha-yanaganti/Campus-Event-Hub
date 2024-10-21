@@ -1,3 +1,4 @@
+
 // api/routes/userRoutes.js
 const express = require('express');
 const router = express.Router();
@@ -18,7 +19,6 @@ router.post('/signup', signupUser);
 
 // Route for user login
 router.post('/login', loginUser);
-
 
 // Route to get the user details
 router.get('/user-details', authenticateUser, getUserById);
